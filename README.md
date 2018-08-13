@@ -1,4 +1,4 @@
-# AngularJs1.x + es2015 Code Review CheckList（初稿）
+# AngularJs1.x + es2015 Code Review CheckList（v1.0.1）
 
 ## 通用规则
 
@@ -6,7 +6,7 @@
 ##### 变量和函数 使用 Camel 命名法 
 ```js
 // 变量
-var orderQuery = {};
+const orderQuery = {};
 // 函数
 function stringFormat(source) {
     // do something
@@ -25,13 +25,13 @@ const RED_BLACK_TYPE = {
 ```
 ##### 函数名使用动宾短语
 ```js
-function getData() {
+function fetchData() {
     
 }
 ```
 ##### getXXX函数一般都有返回值
 ```js
-function getUrl() {
+function fetchUrl() {
     return 'http://www.baidu.com'
 }
 ```
@@ -55,8 +55,8 @@ let hasError = true;
 /*
  * @Author: fang.yang          // 无用
  * @Date: 2018-07-11 17:28:07  // 无用
- * @desc [红、黑名单公共服务]  // 有效，说明整个块是做什么用的
- * @interface [api doc链接]    // 如果是`loader.js`文件的话，便于查找对应api定义
+ * @desc [红、黑名单公共服务]     // 有效，说明整个块是做什么用的
+ * @api [api doc链接]    // 如果是`loader.js`文件的话，便于查找对应api定义
  */
 ```
 
@@ -117,13 +117,12 @@ function($rootScope, $timeout, MyDependency)
 ```
 4. 使用`ng-src`代替`src`，使用`ng-href`代替`href`，`ng-style`代替`style`。
 5. 使用`ng-cloak`或者`ng-bind`来绑定，避免直接使用`{{}}`造成页面抖动。
-6. 使用`EventBus`通信机制，减少对框架和组件的依赖。
-7. 使用 `{{ ::expression }}`在初始化之后，不会再改变。在表达式计算成一个非null的值之后，AngularJs会停止watch表达式。
+6. 使用 `{{ ::expression }}`在初始化之后，不会再改变。在表达式计算成一个非null的值之后，AngularJs会停止watch表达式。
 
-8. `$watch`的表达式越简单越好。
-9. `$watchCollection`避免深度监听。
-10. 使用`ng-class`编写样式，css module的方式来编写。
-11. 及时移除不需要的`$watch`。
+7. `$watch`的表达式越简单越好。
+8. `$watchCollection`避免深度监听。
+9. 使用`ng-class`编写样式，css module的方式来编写。
+10. 及时移除不需要的`$watch`。
 ```js
 var unwatch = $scope.$watch("someKey", function(newValue, oldValue){
   //do sth...
@@ -153,8 +152,7 @@ coupon // 某个单独节点
 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/blob/master/README.md)  
 [clean code javascript](https://github.com/ryanmcdermott/clean-code-javascript)  
 [AngularJs-Es2015编码风格指南](https://github.com/toddmotto/angularjs-styleguide/blob/master/i18n/zh-cn.md)  
-[Google's JavaScript Style Gude](https://google.github.io/styleguide/javascriptguide.xml)
-
-[AngularJS性能优化心得](https://github.com/atian25/blog/issues/5)
+[Google's JavaScript Style Gude](https://google.github.io/styleguide/javascriptguide.xml)  
+[AngularJS性能优化心得](https://github.com/atian25/blog/issues/5)  
 
 
